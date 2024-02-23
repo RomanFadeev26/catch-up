@@ -17,17 +17,7 @@ class EventsHandler
 			ICommand* moveRightPlayer1Command,
 			ICommand* moveRightPlayer2Command,
 			ICommand* exitGameCommand
-		):
-			moveUpPlayer1Command_(moveUpPlayer1Command),
-			moveUpPlayer2Command_(moveUpPlayer2Command),
-			moveLeftPlayer1Command_(moveLeftPlayer1Command),
-			moveLeftPlayer2Command_(moveLeftPlayer2Command),
-			moveDownPlayer1Command_(moveDownPlayer1Command),
-			moveDownPlayer2Command_(moveDownPlayer2Command),
-			moveRightPlayer1Command_(moveRightPlayer1Command),
-			moveRightPlayer2Command_(moveRightPlayer2Command),
-			exitGameCommand_(exitGameCommand)
-		{};
+		);
 		EventsHandler(const EventsHandler&) = default;
 		EventsHandler(EventsHandler&&) noexcept = default;
 		~EventsHandler();

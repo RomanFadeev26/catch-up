@@ -1,5 +1,12 @@
 #include "GameLayer.h"
 
+GameLayer::GameLayer(IObserver* intersectionsObserver, std::vector<IPresentationBuilder::FieldItemPresentation>& presentations) :
+	intersectionsObserver_(intersectionsObserver), presentations_(presentations) {}
+
+GameLayer::~GameLayer() {
+	SDL_FreeSurface(background_);
+};
+
 void GameLayer::searchIntersections() const {
 	if (playersHasIntersections()) {
 		intersectionsObserver_->notify("PLAYER_CATCHED");
@@ -8,21 +15,14 @@ void GameLayer::searchIntersections() const {
 
 void GameLayer::renderItems() const {
 	searchIntersections();
-	SDL_RenderClear(renderer_);
-	SDL_SetRenderDrawColor(renderer_, 0, 0, 0, 0);
-
-	SDL_Texture* bgTexture = SDL_CreateTextureFromSurface(renderer_, background_);
-	SDL_RenderCopy(renderer_, bgTexture, nullptr, nullptr);
-	SDL_DestroyTexture(bgTexture);
+	
+	renderEngine_->setColor({ 0, 0, 0, 0 });
+	IPresentationBuilder::FieldItemPresentation bgPresentation{ background_, { 0, 0, RenderEngine::DEFAULT_WINDOW_WIDTH, RenderEngine::DEFAULT_WINDOW_HEIGHT } };
+	renderEngine_->addSprite(bgPresentation);
 
 	for (auto& i : presentations_) {
-		SDL_Texture* temp = SDL_CreateTextureFromSurface(renderer_, i.surface);
-		SDL_RenderCopy(renderer_, temp, nullptr, &(i.dist));
-
-		// todo возможно я тут слишком рано уничтожаю текстуры - на случай, если оно посыпется непонятно как
-		SDL_DestroyTexture(temp);
+		renderEngine_->addAnimation(i, 13);
 	}
-	SDL_RenderPresent(renderer_);
 }
 
 bool GameLayer::playersHasIntersections() const {

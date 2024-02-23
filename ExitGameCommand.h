@@ -5,11 +5,9 @@ class ExitGameCommand :
     public ICommand
 {
 public:
-    ExitGameCommand(bool& isGameContinued): isGameContinued_(isGameContinued) {}
-    void execute() override {
-        isGameContinued_ = false;
-    }
-    void execute(const std::any&) override {}
+    ExitGameCommand(bool& isGameContinued);
+    void execute() override;
+    void execute(const std::any&) override;
 private:
     bool& isGameContinued_;
 };

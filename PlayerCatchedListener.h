@@ -13,16 +13,8 @@ class PlayerCatchedListener :
         PlayerCatchedListener() = default;
         PlayerCatchedListener(const PlayerCatchedListener&) = default;
         void addPlayer(Player* player);
-        void update(const std::string& event, std::any& data) override {        }
-        void update(const std::string& event) override {
-            if (event == "PLAYER_CATCHED") {
-                try {
-                    updateScores();
-                }
-                catch (const std::bad_any_cast& e) {}
-                changeRoles();
-            }
-        }
+        void update(const std::string& event, std::any& data) override;
+        void update(const std::string& event) override;
     private:
         std::vector<Player*> players_;
         void changeRoles();

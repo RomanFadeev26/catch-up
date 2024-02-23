@@ -1,5 +1,27 @@
 #include "EventsHandler.h"
 
+EventsHandler::EventsHandler(
+	ICommand* moveUpPlayer1Command,
+	ICommand* moveUpPlayer2Command,
+	ICommand* moveLeftPlayer1Command,
+	ICommand* moveLeftPlayer2Command,
+	ICommand* moveDownPlayer1Command,
+	ICommand* moveDownPlayer2Command,
+	ICommand* moveRightPlayer1Command,
+	ICommand* moveRightPlayer2Command,
+	ICommand* exitGameCommand
+) :
+	moveUpPlayer1Command_(moveUpPlayer1Command),
+	moveUpPlayer2Command_(moveUpPlayer2Command),
+	moveLeftPlayer1Command_(moveLeftPlayer1Command),
+	moveLeftPlayer2Command_(moveLeftPlayer2Command),
+	moveDownPlayer1Command_(moveDownPlayer1Command),
+	moveDownPlayer2Command_(moveDownPlayer2Command),
+	moveRightPlayer1Command_(moveRightPlayer1Command),
+	moveRightPlayer2Command_(moveRightPlayer2Command),
+	exitGameCommand_(exitGameCommand)
+{};
+
 EventsHandler::~EventsHandler() {
 	for (auto& i : buttonHandlers_) {
 		delete i;

@@ -7,7 +7,7 @@ using namespace std;
 int main(int argc, char** argv) {
 
 	if (SDL_Init (SDL_INIT_EVERYTHING) < 0) return -1;
-	static constexpr int IMG_FLAGS = IMG_INIT_PNG;
+	static constexpr int IMG_FLAGS = IMG_INIT_PNG & IMG_INIT_JPG;
 	IMG_Init(IMG_FLAGS);
 
 	Game game;

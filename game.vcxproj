@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -82,8 +82,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);E:\C++\game\sdl\include</IncludePath>
-    <LibraryPath>E:\C++\game\sdl\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Users\45318\source\libs\SDL2-2.26.1\include;C:\Users\45318\source\libs\SDL2_image-2.6.2\include;C:\Users\45318\source\libs\SDL2_ttf-2.20.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\45318\source\libs\SDL2_ttf-2.20.1\lib\x64;C:\Users\45318\source\libs\SDL2-2.26.1\lib\x64;C:\Users\45318\source\libs\SDL2_image-2.6.2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -133,7 +133,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -155,14 +155,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ButtonHandler.cpp" />
     <ClCompile Include="EventsHandler.cpp" />
+    <ClCompile Include="ExitGameCommand.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="FieldItem.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameEventsObserver.cpp" />
     <ClCompile Include="GameLayer.cpp" />
     <ClCompile Include="InterfaceLayer.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MoveDownCommand.cpp" />
+    <ClCompile Include="MoveLeftCommand.cpp" />
+    <ClCompile Include="MoveRightCommand.cpp" />
+    <ClCompile Include="MoveUpCommand.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerCatchedListener.cpp" />
+    <ClCompile Include="RenderEngine.cpp" />
+    <ClCompile Include="Square.cpp" />
+    <ClCompile Include="SquarePresentationBuilder.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TimerListener.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -190,6 +201,9 @@
     <ClInclude Include="MoveUpCommand.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerCatchedListener.h" />
+    <ClInclude Include="RenderEngine.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="SquarePresentationBuilder.h" />
     <ClInclude Include="Timer.h" />
@@ -199,6 +213,9 @@
   <ItemGroup>
     <Image Include="sprites\black_drop.jpg" />
     <Image Include="sprites\red_drop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="fonts\Roboto\Roboto-Regular.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
